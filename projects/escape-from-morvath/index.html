@@ -32,7 +32,7 @@
 <main>
   <h1 class="brand">Escape from Morvath</h1>
   <p class="lead">A 2D dungeon crawler made in Unity. You play a young dragon whelp who has to collect three seals and escape the lair of Dragon Lord Morvath.</p>
-  <div class="jump"><a href="#play">Play</a><a href="#docs">Design docs</a><a href="#boss">The boss fight</a><a href="#iteration">Playtesting</a></div>
+  <div class="jump"><a href="#play">Play</a><a href="#docs">Design docs</a><a href="#spotlight">Design spotlight</a><a href="#boss">The boss fight</a><a href="#iteration">Playtesting</a></div>
 
   <section id="play">
   <div class="player-wrap">
@@ -75,6 +75,34 @@
   <div class="btn-row">
     <a class="btn" href="docs/Escape_from_Morvath_Level_Design.pdf" target="_blank" rel="noopener">Open full PDF</a>
   </div>
+  </section>
+
+  <section id="spotlight" class="spotlight">
+    <p class="kicker">Design spotlight</p>
+    <h2>Keeping the dragon phase hard but fair</h2>
+    <div class="spot-grid">
+      <div>
+        <h3>The problem</h3>
+        <p>The last phase has to be the hardest fight in the game. Morvath has his strongest attacks, and new whelps keep joining. Without care, that turns into chaos where the player can't tell what's hurting them or how close they are to winning.</p>
+      </div>
+      <div>
+        <h3>The goals</h3>
+        <ul>
+          <li>Keep the win condition clear at all times.</li>
+          <li>Keep the biggest attacks readable.</li>
+          <li>Let the finish come down to skill, not luck.</li>
+        </ul>
+      </div>
+    </div>
+    <h3>The solution</h3>
+    <ul class="plain-list">
+      <li><strong>Four soulfire braziers</strong> give the phase a clear win condition the player can track.</li>
+      <li><strong>Whelp reinforcements every 25s</strong> keep the pressure on early, then stop once three braziers are lit. Lighting the last brazier grounds Morvath for a short damage window, and fighting whelps during that window made the ending drag on and come down to luck.</li>
+      <li><strong>Deep Breath is a fly-by</strong> right over the player, so the most dangerous attack is always on screen.</li>
+      <li><strong>The Soulfire timer is hidden</strong> in this phase, so one lit brazier never looks like enough.</li>
+    </ul>
+    <h3>The result</h3>
+    <p>Playtesters with a wide range of play styles called it a good fight at the right difficulty. With the whelps gone for the final window, the finish comes down to execution, not luck.</p>
   </section>
 
   <div class="accordion">
