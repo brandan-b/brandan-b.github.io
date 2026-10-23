@@ -235,3 +235,17 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .acc-body { padding: 0 22px 20px; }
 .acc-body .plain-list, .acc-body .phases { margin: 0; }
 .acc-body .iter { background: var(--panel-2); }
+
+/* Placeholder project cards */
+.card.placeholder { border-style: dashed; border-color: var(--line-2); background: transparent; }
+.card.placeholder:hover { transform: none; }
+.ph-img { aspect-ratio: 16 / 10; display: flex; align-items: center; justify-content: center; background: var(--panel); color: var(--muted); font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px dashed var(--line-2); }
+
+/* About intro with headshot */
+.intro { display: flex; align-items: center; gap: 28px; margin-bottom: 28px; }
+.intro h1 { margin-bottom: 8px; }
+.headshot { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid var(--line-2); flex-shrink: 0; }
+@media (max-width: 600px) {
+  .intro { flex-direction: column; align-items: flex-start; gap: 18px; }
+  .headshot { width: 120px; height: 120px; }
+}
