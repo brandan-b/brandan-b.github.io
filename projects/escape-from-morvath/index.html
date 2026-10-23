@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Escape from Morvath | Brandan Brajkovich</title>
+<meta name="description" content="Brandan Brajkovich, game designer. Level design, encounter design and playable Unity prototypes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Metamorphous&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav">
+    <a class="logo" href="../../">Brandan Brajkovich</a>
+    <ul>
+      <li><a href="../../" >Home</a></li>
+      <li><a href="../../projects/" class="active">Projects</a></li>
+      <li><a href="../../about/" >About &amp; Contact</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <h1>Escape from Morvath</h1>
+  <p class="lead">A 2D dungeon crawler made in Unity. You play a young dragon whelp who has to collect three seals and escape the lair of Dragon Lord Morvath.</p>
+
+  <div class="player-wrap">
+    <div class="player" id="player">
+      <div class="player-cover" id="cover">
+        <div class="title">Escape from Morvath</div>
+        <button class="btn" id="play-btn">&#9654; Play in browser</button>
+        <div class="muted" style="font-size:15px">About 30 MB. Best with keyboard on a desktop browser.</div>
+      </div>
+    </div>
+  </div>
+  <p class="player-note muted">Click the game to give it keyboard focus. Use the button in the bottom right corner of the game for fullscreen. Also on <a href="https://brandan-b.itch.io/escape-from-morvath" target="_blank" rel="noopener">itch.io</a>.</p>
+  <p class="player-note muted mobile-note">The game needs a desktop browser and a keyboard.</p>
+
+  <div class="facts">
+    <div class="fact"><div class="label">Role</div><div class="value">Solo designer and developer</div></div>
+    <div class="fact"><div class="label">Engine</div><div class="value">Unity 6, URP 2D, C#</div></div>
+    <div class="fact"><div class="label">Focus</div><div class="value">Level and boss design</div></div>
+    <div class="fact"><div class="label">Platform</div><div class="value">Web browser</div></div>
+  </div>
+
+  <h2>How the game flows</h2>
+  <ul class="plain-list">
+    <li><strong>The Hatchery:</strong> the tutorial, where you learn to move, fight and cast.</li>
+    <li><strong>The Sigil Halls:</strong> the hub that connects every area.</li>
+    <li><strong>The Ritual Chamber</strong> and <strong>The Dragon Crypt:</strong> one seal each, played in either order.</li>
+    <li><strong>The Crucible:</strong> the third seal, which opens once you have the first two.</li>
+    <li><strong>The Throne Room:</strong> the fight against Morvath, which needs all three seals.</li>
+  </ul>
+
+  <h2>The Morvath fight</h2>
+  <p>The final boss has four parts. First you hold off waves of whelps. Then Morvath fights in human form and throws soulfire orbs. Next he transforms and heals, and finally he fights as a dragon. In the dragon phase you light four soulfire braziers while he uses Deep Breath, swoops across the room and calls in new whelps every 25s. Once three braziers are lit, the whelps stop coming.</p>
+
+  <h2>Design choices</h2>
+  <ul class="plain-list">
+    <li><strong>Never mislead the player.</strong> I hid the Soulfire timer in the dragon phase, because seeing it made one brazier look like enough.</li>
+    <li><strong>Keep the boss on screen during big attacks.</strong> Deep Breath is a fly-by right over the player, so you always see it coming.</li>
+    <li><strong>A stuck player should never have to restart.</strong> The pause menu has an Unstuck button with a cooldown.</li>
+    <li><strong>Test it in game, not on paper.</strong> I tried 8-direction art for the dragon and cut it because it felt clunky to play. Four directions read better.</li>
+    <li><strong>Let players set their own keys.</strong> The Keybinds screen gives every action a main and a backup key.</li>
+  </ul>
+
+  <h2>Level design documents</h2>
+  <p class="muted">Eight pages covering the overview, each area and the Morvath encounter. Click a page to see it full size.</p>
+  <div class="docs">
+    <a class="doc" href="docs/01_Overview.png" target="_blank" rel="noopener"><img src="docs/thumbs/01_Overview.jpg" alt="Overview design document" loading="lazy"><span>Overview</span></a>
+    <a class="doc" href="docs/02_The_Hatchery.png" target="_blank" rel="noopener"><img src="docs/thumbs/02_The_Hatchery.jpg" alt="The Hatchery design document" loading="lazy"><span>The Hatchery</span></a>
+    <a class="doc" href="docs/03_The_Sigil_Halls.png" target="_blank" rel="noopener"><img src="docs/thumbs/03_The_Sigil_Halls.jpg" alt="The Sigil Halls design document" loading="lazy"><span>The Sigil Halls</span></a>
+    <a class="doc" href="docs/04_The_Ritual_Chamber.png" target="_blank" rel="noopener"><img src="docs/thumbs/04_The_Ritual_Chamber.jpg" alt="The Ritual Chamber design document" loading="lazy"><span>The Ritual Chamber</span></a>
+    <a class="doc" href="docs/05_The_Dragon_Crypt.png" target="_blank" rel="noopener"><img src="docs/thumbs/05_The_Dragon_Crypt.jpg" alt="The Dragon Crypt design document" loading="lazy"><span>The Dragon Crypt</span></a>
+    <a class="doc" href="docs/06_The_Crucible.png" target="_blank" rel="noopener"><img src="docs/thumbs/06_The_Crucible.jpg" alt="The Crucible design document" loading="lazy"><span>The Crucible</span></a>
+    <a class="doc" href="docs/07_The_Throne_Room.png" target="_blank" rel="noopener"><img src="docs/thumbs/07_The_Throne_Room.jpg" alt="The Throne Room design document" loading="lazy"><span>The Throne Room</span></a>
+    <a class="doc" href="docs/08_Morvath_Encounter.png" target="_blank" rel="noopener"><img src="docs/thumbs/08_Morvath_Encounter.jpg" alt="Morvath Encounter design document" loading="lazy"><span>Morvath Encounter</span></a>
+  </div>
+  <div class="btn-row">
+    <a class="btn" href="docs/Escape_from_Morvath_Level_Design.pdf" target="_blank" rel="noopener">Open full PDF</a>
+    <a class="btn ghost" href="https://brandan-b.itch.io/escape-from-morvath" target="_blank" rel="noopener">View on itch.io</a>
+  </div>
+</main>
+<script>
+  document.getElementById('play-btn').addEventListener('click', function () {
+    var frame = document.createElement('iframe');
+    frame.src = 'game/index.html';
+    frame.title = 'Escape from Morvath';
+    frame.allow = 'fullscreen; autoplay; gamepad';
+    frame.allowFullscreen = true;
+    var player = document.getElementById('player');
+    player.innerHTML = '';
+    player.appendChild(frame);
+    frame.addEventListener('load', function () { frame.focus(); });
+  });
+</script>
+<footer>&copy; 2026 Brandan Brajkovich &middot; <a href="mailto:brandanbrajkovich@gmail.com">brandanbrajkovich@gmail.com</a> &middot; <a href="https://brandan-b.itch.io/" target="_blank" rel="noopener">itch.io</a></footer>
+</body>
+</html>
