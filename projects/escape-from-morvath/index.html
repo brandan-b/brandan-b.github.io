@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Escape from Morvath | Brandan Brajkovich</title>
-<meta name="description" content="Escape from Morvath: a 2D dungeon crawler by Brandan Brajkovich. Play it in your browser and read the level design documents.">
+<meta name="description" content="Escape from Morvath: a 2D dungeon crawler by Brandan Brajkovich. Play it in your browser, read the level design documents, and see what playtesting changed.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Brandan Brajkovich">
 <meta property="og:title" content="Escape from Morvath | Brandan Brajkovich">
-<meta property="og:description" content="Escape from Morvath: a 2D dungeon crawler by Brandan Brajkovich. Play it in your browser and read the level design documents.">
+<meta property="og:description" content="Escape from Morvath: a 2D dungeon crawler by Brandan Brajkovich. Play it in your browser, read the level design documents, and see what playtesting changed.">
 <meta property="og:image" content="https://brandan-b.github.io/projects/escape-from-morvath/cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
@@ -24,15 +24,14 @@
     <ul>
       <li><a href="../../">Home</a></li>
       <li><a href="../../projects/" class="active">Projects</a></li>
-      <li><a href="../../about/">About &amp; Contact</a></li>
+      <li><a href="../../about/">About</a></li>
     </ul>
   </nav>
 </header>
 <main>
   <h1 class="brand">Escape from Morvath</h1>
   <p class="lead">A 2D dungeon crawler made in Unity. You play a young dragon whelp who has to collect three seals and escape the lair of Dragon Lord Morvath.</p>
-
-  <div class="jump"><a href="#play">Play</a><a href="#docs">Design docs</a><a href="#boss">The boss fight</a><a href="#choices">Design choices</a></div>
+  <div class="jump"><a href="#play">Play</a><a href="#docs">Design docs</a><a href="#boss">The boss fight</a><a href="#iteration">Playtesting</a></div>
 
   <section id="play">
   <div class="player-wrap">
@@ -52,12 +51,12 @@
     <div class="fact"><div class="label">Role</div><div class="value">Solo designer and developer</div></div>
     <div class="fact"><div class="label">Engine</div><div class="value">Unity 6, URP 2D, C#</div></div>
     <div class="fact"><div class="label">Focus</div><div class="value">Level and boss design</div></div>
-    <div class="fact"><div class="label">Platform</div><div class="value">Web browser</div></div>
+    <div class="fact"><div class="label">Scope</div><div class="value">6 areas, 4-phase final boss</div></div>
   </div>
 
   <section id="docs">
-  <h2>Level design documents</h2>
-  <p class="muted">The full level design document: eight pages covering the overview, each area and the Morvath encounter. Click a page to view it.</p>
+  <h2>Level design document</h2>
+  <p class="muted">Eight pages covering the overview, each area and the Morvath encounter. Click a page to view it.</p>
   <div class="docs">
     <a class="doc" href="docs/01_Overview.png" data-index="0" data-title="Overview"><img src="docs/thumbs/01_Overview.jpg" alt="Overview design document" loading="lazy"><span>Overview</span></a>
     <a class="doc" href="docs/02_The_Hatchery.png" data-index="1" data-title="The Hatchery"><img src="docs/thumbs/02_The_Hatchery.jpg" alt="The Hatchery design document" loading="lazy"><span>The Hatchery</span></a>
@@ -70,35 +69,50 @@
   </div>
   <div class="btn-row">
     <a class="btn" href="docs/Escape_from_Morvath_Level_Design.pdf" target="_blank" rel="noopener">Open full PDF</a>
-    <a class="btn ghost" href="https://brandan-b.itch.io/escape-from-morvath" target="_blank" rel="noopener">View on itch.io</a>
   </div>
   </section>
 
-  <h2>How the game flows</h2>
+  <div class="accordion">
+  <details id="flow">
+    <summary>How the game flows</summary>
+    <div class="acc-body">
   <ul class="plain-list">
     <li><strong>The Hatchery:</strong> the tutorial, where you learn to move, fight and cast.</li>
     <li><strong>The Sigil Halls:</strong> the hub that connects every area.</li>
-    <li><strong>The Ritual Chamber</strong> and <strong>The Dragon Crypt:</strong> one seal each, played in either order.</li>
+    <li><strong>The Ritual Chamber</strong> and <strong>The Dragon Crypt:</strong> one seal each, in either order.</li>
     <li><strong>The Crucible:</strong> the third seal, which opens once you have the first two.</li>
     <li><strong>The Throne Room:</strong> the fight against Morvath, which needs all three seals.</li>
   </ul>
-
-  <section id="boss">
-  <h2>The Morvath fight</h2>
-  <p>The final boss has four parts. First you hold off waves of whelps. Then Morvath fights in human form and throws soulfire orbs. Next he transforms and heals, and finally he fights as a dragon. In the dragon phase you light four soulfire braziers while he uses Deep Breath, swoops across the room and calls in new whelps every 25s. Once three braziers are lit, the whelps stop coming.</p>
-
-  </section>
-
-  <section id="choices">
-  <h2>Design choices</h2>
-  <ul class="plain-list">
-    <li><strong>Never mislead the player.</strong> I hid the Soulfire timer in the dragon phase, because seeing it made one brazier look like enough.</li>
-    <li><strong>Keep the boss on screen during big attacks.</strong> Deep Breath is a fly-by right over the player, so you always see it coming.</li>
-    <li><strong>A stuck player should never have to restart.</strong> The pause menu has an Unstuck button with a cooldown.</li>
-    <li><strong>Test it in game, not on paper.</strong> I tried 8-direction art for the dragon and cut it because it felt clunky to play. Four directions read better.</li>
-    <li><strong>Let players set their own keys.</strong> The Keybinds screen gives every action a main and a backup key.</li>
-  </ul>
-  </section>
+    </div>
+  </details>
+  <details id="boss">
+    <summary>The Morvath fight</summary>
+    <div class="acc-body">
+  <ol class="phases">
+    <li><strong>Whelp waves.</strong> Hold off waves of whelps before Morvath steps in.</li>
+    <li><strong>Human form.</strong> Morvath fights on foot and throws soulfire orbs.</li>
+    <li><strong>Transformation.</strong> He transforms into a dragon and heals.</li>
+    <li><strong>Dragon form.</strong> Light four soulfire braziers while he uses Deep Breath, swoops across the room and calls in new whelps every 25s. Once three braziers are lit, the whelps stop coming.</li>
+  </ol>
+    </div>
+  </details>
+  <details id="iteration">
+    <summary>What playtesting changed</summary>
+    <div class="acc-body">
+  <p class="muted">I judge every change by playing it. These are the problems testing turned up, and what I did about them.</p>
+  <div class="iters">
+    <div class="iter"><h3>The Soulfire timer misled players</h3><p><span class="lbl">Problem</span>In the dragon phase, the timer made one lit brazier look like enough.</p><p><span class="lbl fix">Change</span>Hid the timer for that phase, so the screen only shows what's true.</p></div>
+    <div class="iter"><h3>Deep Breath hid the boss</h3><p><span class="lbl">Problem</span>Moving Morvath closer for his breath attack felt wrong in play.</p><p><span class="lbl fix">Change</span>Turned it into a fly-by right over the player, so the biggest attack is always on screen.</p></div>
+    <div class="iter"><h3>Summoned whelps felt unfair</h3><p><span class="lbl">Problem</span>Whelps could shove the player around during the dragon phase.</p><p><span class="lbl fix">Change</span>Removed the push. Whelps still pressure the player, but never take away control.</p></div>
+    <div class="iter"><h3>Enemies reset too hard</h3><p><span class="lbl">Problem</span>After a death in the Crucible, enemies snapped home and re-aggroed instantly.</p><p><span class="lbl fix">Change</span>They now walk home at full health and only re-aggro within 4 tiles.</p></div>
+    <div class="iter"><h3>8-direction art felt clunky</h3><p><span class="lbl">Problem</span>I tried diagonal art for the dragon, but movement read worse in play.</p><p><span class="lbl fix">Change</span>Kept four directions. Cleaner to read, and the fight felt better.</p></div>
+    <div class="iter"><h3>Leveling didn't scale</h3><p><span class="lbl">Problem</span>Leveling up after a set number of kills wouldn't hold up once I added more enemy types and areas.</p><p><span class="lbl fix">Change</span>Switched to XP per enemy, so new enemies and areas slot in without rebalancing.</p></div>
+    <div class="iter"><h3>A stuck player had to restart</h3><p><span class="lbl">Problem</span>Getting caught on level geometry meant losing the whole run.</p><p><span class="lbl fix">Change</span>Added an Unstuck button to the pause menu, with a cooldown so it can't be abused.</p></div>
+    <div class="iter"><h3>Controls should fit the player</h3><p><span class="lbl">Problem</span>Fixed keys don't suit every player or keyboard layout.</p><p><span class="lbl fix">Change</span>Added a Keybinds screen with a main and a backup key for every action.</p></div>
+  </div>
+    </div>
+  </details>
+  </div>
 </main>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Design document viewer">
@@ -115,6 +129,13 @@
 </div>
 
 <script>
+  function openFromHash() {
+    var el = location.hash && document.querySelector(location.hash);
+    if (el && el.tagName === 'DETAILS') { el.open = true; el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  }
+  window.addEventListener('hashchange', openFromHash);
+  openFromHash();
+
   document.getElementById('play-btn').addEventListener('click', function () {
     var frame = document.createElement('iframe');
     frame.src = 'game/index.html';
