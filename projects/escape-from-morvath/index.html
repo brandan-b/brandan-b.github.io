@@ -150,7 +150,7 @@
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Design document viewer">
   <div class="lb-bar">
-    <div><span class="lb-title" id="lb-title"></span> <span id="lb-count"></span></div>
+    <div><span class="lb-title" id="lb-title"></span> <span id="lb-count"></span><span class="lb-hint">Tap to zoom &middot; Swipe for next page</span></div>
     <div class="lb-actions">
       <a class="lb-btn small" id="lb-full" href="#" target="_blank" rel="noopener">Full size</a>
       <button class="lb-btn" id="lb-close" aria-label="Close">&#10005;</button>
@@ -190,7 +190,9 @@
     var fullLink = document.getElementById('lb-full');
     var stage = document.getElementById('lb-stage');
     var current = 0;
+    var mobile = window.matchMedia('(max-width: 700px)');
     function show(i) {
+      stage.classList.remove('zoomed');
       current = (i + tiles.length) % tiles.length;
       var t = tiles[current];
       var full = t.getAttribute('href');
@@ -219,7 +221,6 @@
     });
     tiles.forEach(function (t, i) {
       t.addEventListener('click', function (e) {
-        if (window.matchMedia('(max-width: 700px)').matches) return;
         e.preventDefault(); open(i);
       });
     });
@@ -227,6 +228,15 @@
     document.getElementById('lb-prev').addEventListener('click', function () { show(current - 1); });
     document.getElementById('lb-next').addEventListener('click', function () { show(current + 1); });
     stage.addEventListener('click', function (e) { if (e.target === stage) close(); });
+    img.addEventListener('click', function () { if (mobile.matches) stage.classList.toggle('zoomed'); });
+    var sx = null, sy = null;
+    stage.addEventListener('touchstart', function (e) { if (e.touches.length === 1) { sx = e.touches[0].clientX; sy = e.touches[0].clientY; } else { sx = null; } }, { passive: true });
+    stage.addEventListener('touchend', function (e) {
+      if (sx === null || stage.classList.contains('zoomed')) return;
+      var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) show(current + (dx < 0 ? 1 : -1));
+      sx = null;
+    });
     document.addEventListener('keydown', function (e) {
       if (!box.classList.contains('open')) return;
       if (e.key === 'Escape') close();
