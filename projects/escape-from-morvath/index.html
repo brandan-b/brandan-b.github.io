@@ -203,7 +203,10 @@
     function open(i) { show(i); box.classList.add('open'); document.body.style.overflow = 'hidden'; document.getElementById('lb-close').focus(); }
     function close() { box.classList.remove('open'); document.body.style.overflow = ''; tiles[current].focus(); }
     tiles.forEach(function (t, i) {
-      t.addEventListener('click', function (e) { e.preventDefault(); open(i); });
+      t.addEventListener('click', function (e) {
+        if (window.matchMedia('(max-width: 700px)').matches) return;
+        e.preventDefault(); open(i);
+      });
     });
     document.getElementById('lb-close').addEventListener('click', close);
     document.getElementById('lb-prev').addEventListener('click', function () { show(current - 1); });
