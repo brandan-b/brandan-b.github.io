@@ -206,6 +206,13 @@
     }
     function open(i) { show(i); box.classList.add('open'); document.body.style.overflow = 'hidden'; document.getElementById('lb-close').focus(); }
     function close() { box.classList.remove('open'); img.removeAttribute('src'); document.body.style.overflow = ''; tiles[current].focus(); }
+    var warmed = {};
+    tiles.forEach(function (t) {
+      t.addEventListener('pointerenter', function () {
+        var h = t.getAttribute('href');
+        if (!warmed[h]) { warmed[h] = true; new Image().src = h; }
+      });
+    });
     tiles.forEach(function (t, i) {
       t.addEventListener('click', function (e) {
         if (window.matchMedia('(max-width: 700px)').matches) return;
