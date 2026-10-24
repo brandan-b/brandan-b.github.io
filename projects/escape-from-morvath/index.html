@@ -63,14 +63,14 @@
   <h2>Level design document</h2>
   <p class="muted">Eight pages covering the overview, each area and the Morvath encounter. Click a page to view it.</p>
   <div class="docs">
-    <a class="doc" href="docs/01_Overview.png" data-index="0" data-title="Overview"><img src="docs/thumbs/01_Overview.jpg" alt="Overview design document" loading="lazy"><span>Overview</span></a>
-    <a class="doc" href="docs/02_The_Hatchery.png" data-index="1" data-title="The Hatchery"><img src="docs/thumbs/02_The_Hatchery.jpg" alt="The Hatchery design document" loading="lazy"><span>The Hatchery</span></a>
-    <a class="doc" href="docs/03_The_Sigil_Halls.png" data-index="2" data-title="The Sigil Halls"><img src="docs/thumbs/03_The_Sigil_Halls.jpg" alt="The Sigil Halls design document" loading="lazy"><span>The Sigil Halls</span></a>
-    <a class="doc" href="docs/04_The_Ritual_Chamber.png" data-index="3" data-title="The Ritual Chamber"><img src="docs/thumbs/04_The_Ritual_Chamber.jpg" alt="The Ritual Chamber design document" loading="lazy"><span>The Ritual Chamber</span></a>
-    <a class="doc" href="docs/05_The_Dragon_Crypt.png" data-index="4" data-title="The Dragon Crypt"><img src="docs/thumbs/05_The_Dragon_Crypt.jpg" alt="The Dragon Crypt design document" loading="lazy"><span>The Dragon Crypt</span></a>
-    <a class="doc" href="docs/06_The_Crucible.png" data-index="5" data-title="The Crucible"><img src="docs/thumbs/06_The_Crucible.jpg" alt="The Crucible design document" loading="lazy"><span>The Crucible</span></a>
-    <a class="doc" href="docs/07_The_Throne_Room.png" data-index="6" data-title="The Throne Room"><img src="docs/thumbs/07_The_Throne_Room.jpg" alt="The Throne Room design document" loading="lazy"><span>The Throne Room</span></a>
-    <a class="doc" href="docs/08_Morvath_Encounter.png" data-index="7" data-title="Morvath Encounter"><img src="docs/thumbs/08_Morvath_Encounter.jpg" alt="Morvath Encounter design document" loading="lazy"><span>Morvath Encounter</span></a>
+    <a class="doc" href="docs/01_Overview.webp" data-index="0" data-title="Overview"><img src="docs/thumbs/01_Overview.webp" alt="Overview design document" loading="lazy"><span>Overview</span></a>
+    <a class="doc" href="docs/02_The_Hatchery.webp" data-index="1" data-title="The Hatchery"><img src="docs/thumbs/02_The_Hatchery.webp" alt="The Hatchery design document" loading="lazy"><span>The Hatchery</span></a>
+    <a class="doc" href="docs/03_The_Sigil_Halls.webp" data-index="2" data-title="The Sigil Halls"><img src="docs/thumbs/03_The_Sigil_Halls.webp" alt="The Sigil Halls design document" loading="lazy"><span>The Sigil Halls</span></a>
+    <a class="doc" href="docs/04_The_Ritual_Chamber.webp" data-index="3" data-title="The Ritual Chamber"><img src="docs/thumbs/04_The_Ritual_Chamber.webp" alt="The Ritual Chamber design document" loading="lazy"><span>The Ritual Chamber</span></a>
+    <a class="doc" href="docs/05_The_Dragon_Crypt.webp" data-index="4" data-title="The Dragon Crypt"><img src="docs/thumbs/05_The_Dragon_Crypt.webp" alt="The Dragon Crypt design document" loading="lazy"><span>The Dragon Crypt</span></a>
+    <a class="doc" href="docs/06_The_Crucible.webp" data-index="5" data-title="The Crucible"><img src="docs/thumbs/06_The_Crucible.webp" alt="The Crucible design document" loading="lazy"><span>The Crucible</span></a>
+    <a class="doc" href="docs/07_The_Throne_Room.webp" data-index="6" data-title="The Throne Room"><img src="docs/thumbs/07_The_Throne_Room.webp" alt="The Throne Room design document" loading="lazy"><span>The Throne Room</span></a>
+    <a class="doc" href="docs/08_Morvath_Encounter.webp" data-index="7" data-title="Morvath Encounter"><img src="docs/thumbs/08_Morvath_Encounter.webp" alt="Morvath Encounter design document" loading="lazy"><span>Morvath Encounter</span></a>
   </div>
   <div class="btn-row">
     <a class="btn" href="docs/Escape_from_Morvath_Level_Design.pdf" target="_blank" rel="noopener">Open full PDF</a>
@@ -202,6 +202,10 @@
       title.textContent = t.dataset.title;
       count.textContent = (current + 1) + ' / ' + tiles.length;
       fullLink.href = full;
+      [current + 1, current - 1].forEach(function (j) {
+        var n = tiles[(j + tiles.length) % tiles.length].getAttribute('href');
+        if (!warmed[n]) { warmed[n] = true; new Image().src = n; }
+      });
       stage.scrollTop = 0;
     }
     function open(i) { show(i); box.classList.add('open'); document.body.style.overflow = 'hidden'; document.getElementById('lb-close').focus(); }
