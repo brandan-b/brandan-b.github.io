@@ -187,21 +187,25 @@
     var img = document.getElementById('lb-img');
     var title = document.getElementById('lb-title');
     var count = document.getElementById('lb-count');
-    var full = document.getElementById('lb-full');
+    var fullLink = document.getElementById('lb-full');
     var stage = document.getElementById('lb-stage');
     var current = 0;
     function show(i) {
       current = (i + tiles.length) % tiles.length;
       var t = tiles[current];
-      img.src = t.getAttribute('href');
+      var full = t.getAttribute('href');
+      img.src = t.querySelector('img').src;
+      var pre = new Image();
+      pre.onload = function () { if (tiles[current] === t) img.src = full; };
+      pre.src = full;
       img.alt = t.dataset.title + ' design document';
       title.textContent = t.dataset.title;
       count.textContent = (current + 1) + ' / ' + tiles.length;
-      full.href = t.getAttribute('href');
+      fullLink.href = full;
       stage.scrollTop = 0;
     }
     function open(i) { show(i); box.classList.add('open'); document.body.style.overflow = 'hidden'; document.getElementById('lb-close').focus(); }
-    function close() { box.classList.remove('open'); document.body.style.overflow = ''; tiles[current].focus(); }
+    function close() { box.classList.remove('open'); img.removeAttribute('src'); document.body.style.overflow = ''; tiles[current].focus(); }
     tiles.forEach(function (t, i) {
       t.addEventListener('click', function (e) {
         if (window.matchMedia('(max-width: 700px)').matches) return;
