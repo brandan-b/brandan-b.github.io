@@ -16,3 +16,4 @@ body { padding: 0; margin: 0 }
 #unity-warning { position: absolute; left: 50%; top: 5%; transform: translate(-50%); background: white; padding: 10px; display: none }
 body { background: #0d0b0c; overflow: hidden }
 #unity-build-title { color: #e8e2dc; font-family: Georgia, serif }
+#unity-canvas, #unity-canvas:focus, #unity-canvas:focus-visible { outline: none; }
